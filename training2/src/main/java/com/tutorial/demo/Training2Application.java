@@ -20,12 +20,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EntityScan({"com.springdata"})
 @EnableTransactionManagement
 public class Training2Application {
-// changes1
-	//changes3
-	// changes2
-	// changes4
-	// changes 11
-	// change 10
+
 	public static void main(String[] args) {
 		SpringApplication.run(Training2Application.class, args);
 	}
