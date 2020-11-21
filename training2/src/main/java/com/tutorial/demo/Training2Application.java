@@ -25,6 +25,7 @@ public class Training2Application {
 	// changes2
 	// changes4
 	// changes 11
+	// change 10
 	public static void main(String[] args) {
 		SpringApplication.run(Training2Application.class, args);
 	}
