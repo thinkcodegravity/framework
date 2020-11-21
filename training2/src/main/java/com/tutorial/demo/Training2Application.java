@@ -29,7 +29,7 @@ public class Training2Application {
 	public static void main(String[] args) {
 		SpringApplication.run(Training2Application.class, args);
 	}
-
+	sdfdsf
 	@Bean
 	public FilterRegistrationBean filterRegistrationBean() {
 		FilterRegistrationBean registrationBean = new FilterRegistrationBean();
