@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression;
 @WebServlet("/change")
 public class ChangePasswordServlet extends HttpServlet {
+	//changes 5
 	public void doGet(HttpServletRequest req, HttpServletResponse res) {
 		System.out.println("login get method");
 	}
