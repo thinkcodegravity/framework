@@ -1,10 +1,14 @@
 package com.strut;
 
+import org.apache.log4j.Logger;
+
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
 
 public class LoggingIntercept extends AbstractInterceptor
 {
+	Logger log=Logger.getLogger("LoggingIntercept"); 
+    
     public String intercept(ActionInvocation ai)
     throws Exception
   {

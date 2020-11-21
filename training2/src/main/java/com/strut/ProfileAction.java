@@ -2,6 +2,7 @@ package com.strut;
 import java.sql.Connection;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -13,7 +14,7 @@ import com.tutorial.demo.UsersTable;
 
  public class ProfileAction extends ActionSupport  {
     private static final long serialVersionUID = 1L;
-    
+    Logger log=Logger.getLogger("ProfileAction"); 
     // STRUT BEAN - UI FORM DATA - PULL
     public String userid; 
 	public String pass; 
@@ -36,16 +37,27 @@ import com.tutorial.demo.UsersTable;
 	ProfileBean profileBean;
 	public String authenticate() {
 		try {
-			System.out.println("entering struts action model/business method ");
+			System.out.println("hello sysout"); 
+			log.debug("1");
+			log.info("2");
+			log.warn("3");
+			log.error("4");
+			// debug > info > warn > error
+			
+			log.info("hello log4j");  // log.info, log.debug, log.warn, log.error
+			log.info("entering struts action model/business method ");
 			LoginEntity records=profileBean.authenticate(userid, pass);
-			if(records==null )
+			if(records==null ) {
+				log.error(userid+" login failed , invalid pssword");
 				return "failure";
-			else {
+			}else {
+				log.info(userid+" login success");
 				firstName=records.getFname();
 				lastName=records.getLname();
 				return "success";
 			}
 		}catch(Exception e) {
+			log.error("exception happened",e);
 			return "failure";
 		}	
 	}

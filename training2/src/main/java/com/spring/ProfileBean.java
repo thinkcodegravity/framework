@@ -13,6 +13,7 @@ public class ProfileBean {
 	public LoginRepository ur;
 	
 	public LoginEntity authenticate(String userid,String password) {
+		System.out.println("checking login information in db for "+userid);
 		if(userid == null || password ==null)
 			return null;
 		List<LoginEntity> records=ur.findByUidAndPwd(userid, password);
