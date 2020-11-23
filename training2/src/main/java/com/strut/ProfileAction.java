@@ -1,18 +1,14 @@
 package com.strut;
-import java.sql.Connection;
-import java.util.List;
+import java.util.ArrayList;
 
 import org.apache.log4j.Logger;
+import org.apache.struts2.interceptor.ServletRequestAware;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import com.opensymphony.xwork2.ActionSupport;
 import com.spring.ProfileBean;
 import com.springdata.LoginEntity;
-import com.springdata.LoginRepository;
-import com.tutorial.demo.DatabaseConnection;
-import com.tutorial.demo.UsersTable;
 
- public class ProfileAction extends ActionSupport  {
+ public class ProfileAction extends ActionSupport {
     private static final long serialVersionUID = 1L;
     Logger log=Logger.getLogger("ProfileAction"); 
     // STRUT BEAN - UI FORM DATA - PULL
@@ -36,28 +32,21 @@ import com.tutorial.demo.UsersTable;
 	@Autowired
 	ProfileBean profileBean;
 	public String authenticate() {
+		System.out.println("in action program authenticate method");
 		try {
-			System.out.println("hello sysout"); 
-			log.debug("1");
-			log.info("2");
-			log.warn("3");
-			log.error("4");
-			// debug > info > warn > error
+			fruits.add("mango");
+			fruits.add("grapes");
+			fruits.add("apple");
 			
-			log.info("hello log4j");  // log.info, log.debug, log.warn, log.error
-			log.info("entering struts action model/business method ");
 			LoginEntity records=profileBean.authenticate(userid, pass);
 			if(records==null ) {
-				log.error(userid+" login failed , invalid pssword");
 				return "failure";
 			}else {
-				log.info(userid+" login success");
 				firstName=records.getFname();
 				lastName=records.getLname();
 				return "success";
 			}
 		}catch(Exception e) {
-			log.error("exception happened",e);
 			return "failure";
 		}	
 	}
@@ -76,5 +65,12 @@ import com.tutorial.demo.UsersTable;
 	}
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+	public ArrayList<String> fruits=new ArrayList<String> ();
+	public ArrayList<String> getFruits() {
+		return fruits;
+	}
+	public void setFruits(ArrayList<String> fruits) {
+		this.fruits = fruits;
 	}
 }
