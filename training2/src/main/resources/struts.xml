@@ -13,6 +13,10 @@
 			<result type="redirect" name="failure">error_strut.jsp</result> <!-- servlet webpage redirect --> 
 		</action>
 		
+		<action name="order" class="com.strut.OrderAction" method="add2Cart">
+			<result type="json" name="success"></result> <!-- servlet webpage redirect --> 
+		</action>
+		
 		<action name="loginprocess_strut" class="com.strut.ProfileAction" method="authenticate">
 			<interceptor-ref name="defaultStack" />
 			<interceptor-ref name="log" />

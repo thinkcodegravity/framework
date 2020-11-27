@@ -9,11 +9,14 @@ import com.springdata.LoginEntity;
 import com.springdata.LoginRepository;
 
 @Service
-//@Scope("session")
+//@Scope("request")
 public class ProfileBean {
 	// Spring Data DI	
-	@Autowired
+	
+	@Autowired // spring framework
 	public LoginRepository ur;
+	// concrete dependancy injection 
+	// is done by spring framework 
 	
 
 	@Autowired
