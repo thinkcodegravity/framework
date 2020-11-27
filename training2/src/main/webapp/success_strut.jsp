@@ -2,13 +2,13 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <html>
 
-STRUT DATA TAG LIBRARY - ACCESS STRUTS ACTION DATA(AVRIABLESS)
-WELCOME MR : <s:property value = "firstName" />-<s:property value = "lastName" />
- 
-STRUT CONTROL TAG LIBRARY - MANIPULATE/NAVIGATE THROUGH STRUT ACTION LIST
+STRUT DATA TAG LIBRARY - ACCESS STRUTS ACTION DATA(AVRIABLESS)<br>
+WELCOME MR : <s:property value = "firstName" />-<s:property value = "lastName" /><br>
+ <br>
+STRUT CONTROL TAG LIBRARY - MANIPULATE/NAVIGATE THROUGH STRUT ACTION LIST<br>
 <s:iterator value="%{fruits}">    <br>   <s:property />    </s:iterator>
-
-STRUT UI TAG LIBRARY - CODE FOR HTML
+<br>
+STRUT UI TAG LIBRARY - CODE FOR HTML<br>
 <s:textfield name="ProductID" label="Product Id" />
 
 

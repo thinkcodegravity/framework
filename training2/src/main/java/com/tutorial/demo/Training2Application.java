@@ -1,7 +1,5 @@
 package com.tutorial.demo;
 
-import java.util.ArrayList;
-
 import org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,7 +13,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
 @ServletComponentScan
-@ComponentScan(basePackages= {"com.strut","com.spring","com.springdata"})
+@ComponentScan(basePackages= {"com.config","com.strut","com.spring","com.springdata"})
 @EnableJpaRepositories("com.springdata")
 @EntityScan({"com.springdata"})
 @EnableTransactionManagement

@@ -1,0 +1,14 @@
+spring:
+  profiles: test
+companyName: RetailShop
+companyLogo: RSTest
+info1:
+  info2:test
+---
+ 
+spring:
+  profiles: prod
+companyName: RetailShop
+companyLogo: RSProd
+info1:
+  info2:test

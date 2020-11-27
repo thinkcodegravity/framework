@@ -8,6 +8,11 @@
 			<interceptor name="log" class="com.strut.LoggingIntercept" />
 		</interceptors>
 		
+		<action name="changeFname" class="com.strut.ChangeAction" method="firstNameUpdate">
+			<result name="success">success_strut.jsp</result> <!-- servlet webpage forward -->
+			<result type="redirect" name="failure">error_strut.jsp</result> <!-- servlet webpage redirect --> 
+		</action>
+		
 		<action name="loginprocess_strut" class="com.strut.ProfileAction" method="authenticate">
 			<interceptor-ref name="defaultStack" />
 			<interceptor-ref name="log" />

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import org.apache.log4j.Logger;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import com.config.YAMLConfig;
 import com.opensymphony.xwork2.ActionSupport;
 import com.spring.ProfileBean;
 import com.springdata.LoginEntity;

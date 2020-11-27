@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
  
 
-@Repository
+@Repository // store
 public interface LoginRepository extends JpaRepository<LoginEntity, String> {
 
 	public List<LoginEntity> findByUidAndPwd(String users,String password);
@@ -19,12 +19,20 @@ public interface LoginRepository extends JpaRepository<LoginEntity, String> {
 	@Modifying
 	@Query("UPDATE LoginEntity u SET u.pwd=?2 WHERE u.uid= ?1")
 	public void update(String users,String password);
-	
+
+	@Transactional
+	@Modifying
+	@Query("UPDATE LoginEntity u SET u.fname=?2 WHERE u.uid= ?1")
+	public int updateFname(String users,String fname);
+
 	@Transactional
 	@Modifying
 	@Query("DELETE LoginEntity u WHERE u.uid= ?1")
 	public void delete(String users);
 
+	@Query("SELECT u FROM LoginEntity u WHERE u.uid= ?1 and u.pwd=?2")
+	public List<LoginEntity> verify(String users,String password);
+	
 	/*
 	public List<UsersEntity> findByUid(String users);
 	
