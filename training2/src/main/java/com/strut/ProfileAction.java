@@ -34,7 +34,8 @@ import com.springdata.LoginEntity;
 	@Autowired
 	ProfileBean profileBean;
 	public String authenticate() {
-		System.out.println("in action program authenticate method");
+		
+		System.out.println("enter action program authenticate method");
 		try {
 			fruits.add("mango");
 			fruits.add("grapes");
@@ -51,6 +52,9 @@ import com.springdata.LoginEntity;
 		}catch(Exception e) {
 			return "failure";
 		}	
+		finally {
+			System.out.println("\n\n exit action program authenticate method");
+		}
 	}
 	 
 	// response webpage form bean
