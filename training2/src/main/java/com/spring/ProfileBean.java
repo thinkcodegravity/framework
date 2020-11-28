@@ -31,6 +31,7 @@ public class ProfileBean {
 	String compName;
 	
 	public LoginEntity authenticate(String userid,String password) {
+		
 		System.out.println("\n Entering Spring bean : ProfileBean-authenticate");
 		System.out.println("Configuration - yaml file:"+yaml.getCompanyLogo());
 		System.out.println("Configuration - properties file:"+blockedUser);
@@ -62,4 +63,12 @@ public class ProfileBean {
 		System.out.println("Entering Spring bean : ProfileBean-delete");
 		return ur.delete(userid);
 	}
+	public int updateFirstName(String userid,String newFirstName) {
+		if(userid.equals(""))
+			return 0;
+		int res=ur.updateFname(userid, newFirstName);
+		return res;
+	}
+	
+	
 }

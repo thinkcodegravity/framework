@@ -6,7 +6,7 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 //add multiple test cases into 1 test suite
-@SuiteClasses({Struts_ControllerLayerTest.class,Spring_ModelLayerTest.class,JPA_DataAccessLayerTest.class})
+@SuiteClasses({Spring_ModelLayerTest.class})
 public class Training2ApplicationTests {
 
 }

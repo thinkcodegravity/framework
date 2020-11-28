@@ -1,5 +1,7 @@
 package com.tutorial.demo;
 import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+
 import org.apache.struts2.StrutsSpringJUnit4TestCase;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -21,7 +23,8 @@ public class Struts_ControllerLayerTest  extends StrutsSpringJUnit4TestCase<Prof
 		request.addParameter("pass", "john123");
 		ActionProxy proxy=getActionProxy("/loginprocess_strut");
 		String result=proxy.execute();
-		assertEquals("success", result);
+		assertEquals("success", result); // check/compare expected results
+		
 	}
 	@Test
     public void test2InvalidLogin() throws Exception {

@@ -40,7 +40,12 @@ public class JPA_DataAccessLayerTest {
 		List<LoginEntity> li=ur.findByUidAndPwd("mike", "mike123");
 		assertEquals(1 , li.size());
 	}
-	
+
+	@Test 
+	public void test2FindByUidPwdInvalid() {
+		List<LoginEntity> li=ur.findByUidAndPwd("mike", "sdfsdf");
+		assertEquals(0 , li.size());
+	}
 	@Test 
 	public void test3SearchByUidPwd() {
 		List<LoginEntity> li=ur.verify("mike", "mike123");
@@ -50,7 +55,7 @@ public class JPA_DataAccessLayerTest {
 	@Test 
 	public void test4Update() {
 		int res=ur.update("mike", "mike456");
-		assertEquals(1, res);
+		assertEquals(1, res); 
 	}
 	@Test 
 	public void test5UpdateFname() {
@@ -61,5 +66,11 @@ public class JPA_DataAccessLayerTest {
 	public void test6Delete() {
 		int res=ur.delete("mike");
 		assertEquals(1, res);
+	}	
+	
+	@Test 
+	public void test6DeleteInvalid() {
+		int res=ur.delete("abcd");
+		assertEquals(0, res);
 	}	
 }

@@ -19,6 +19,7 @@ public interface LoginRepository extends JpaRepository<LoginEntity, String> {
 	@Modifying
 	@Query("UPDATE LoginEntity u SET u.pwd=?2 WHERE u.uid= ?1")
 	public int update(String users,String password);
+	
 
 	@Transactional
 	@Modifying
