@@ -2,13 +2,14 @@ spring:
   profiles: test
 companyName: RetailShop
 companyLogo: RSTest
-info1:
-  info2:test
+spring.datasource.username: root
+spring.datasource.password: root
+
 ---
  
 spring:
   profiles: prod
 companyName: RetailShop
 companyLogo: RSProd
-info1:
-  info2:test
+spring.datasource.username: awsmysqldbUserid
+spring.datasource.password: awsmysqldbPass

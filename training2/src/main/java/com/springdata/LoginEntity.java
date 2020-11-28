@@ -12,6 +12,10 @@ public class LoginEntity {
 	@Id
 	@Column(name="userid")
 	String uid;
+	@Override
+	public String toString() {
+		return "LoginEntity [uid=" + uid + ", pwd=" + pwd + ", fname=" + fname + ", lname=" + lname + "]";
+	}
 	@Column(name="password")
 	String pwd;	
 	@Column(name="fname")

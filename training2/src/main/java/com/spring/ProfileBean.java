@@ -23,11 +23,15 @@ public class ProfileBean {
 	YAMLConfig yaml;
 	
 
+	// properties file entry
 	@Value("${blocked.user}")
 	String blockedUser;
 	
+	@Value("${company.name}")
+	String compName;
+	
 	public LoginEntity authenticate(String userid,String password) {
-		
+		System.out.println(compName);
 		System.out.println("Configuration - yaml file:"+yaml.getCompanyLogo());
 		System.out.println("Configuration - properties file:"+blockedUser);
 		List<LoginEntity> records=ur.findByUidAndPwd(userid, password);

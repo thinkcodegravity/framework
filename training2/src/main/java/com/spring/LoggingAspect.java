@@ -9,14 +9,15 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.opensymphony.xwork2.interceptor.annotations.Before;
+import com.springdata.LoginEntity;
 
 @Aspect
 @Component
 public class LoggingAspect  {
-	
-	
-	@Pointcut("within(com.spring.ProfileBean)")
-	public void getResponseTime(ProceedingJoinPoint  joinPoint) throws Exception{
+	 
+	 
+	@Around("within(com.spring.ProfileBean)")
+	public Object aroundCommonCode(ProceedingJoinPoint  joinPoint) throws Exception{
 		// ******************** SECURITY *************************
 		String remoteAddress = ((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes())
 			       .getRequest().getRemoteAddr();
@@ -24,7 +25,7 @@ public class LoggingAspect  {
 			System.out.println("client is blocked for security reason");
 			throw new Exception("Blocked Customer");
 		}
-		
+		Object o=null;
 		// ******************** LOGGING *************************		
 		System.out.println("\n\n >>>>>>>>>>> SPRING ENTER >>>>>>>>>>>");
 		System.out.println(" Entering Aspect - response time performance");
@@ -34,7 +35,8 @@ public class LoggingAspect  {
 		
 		// ******************** EXCEPTION HANDLING *************************		
 		try {
-			joinPoint.proceed();// give control to bean class
+			o=joinPoint.proceed();// give control to bean class
+			 
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}
@@ -42,7 +44,7 @@ public class LoggingAspect  {
 		System.out.println("Time taken to process this request :"+(stopTime-startTime)+"ms");
 		System.out.println("Exit Aspect -     response time performance");
 		System.out.println(">>>>>>>>>>> SPRING EXIT >>>>>>>>>>>");
-		
+		return o;
 	}
 	/*
 	@Before("pointcut1()")
