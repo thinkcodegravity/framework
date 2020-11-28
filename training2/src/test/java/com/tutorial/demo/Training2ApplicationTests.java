@@ -1,13 +1,12 @@
 package com.tutorial.demo;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+import org.junit.runners.Suite.SuiteClasses;
 
-@SpringBootTest
-class Training2ApplicationTests {
-
-	@Test
-	void contextLoads() {
-	}
+@RunWith(Suite.class)
+//add multiple test cases into 1 test suite
+@SuiteClasses({Struts_ControllerLayerTest.class,Spring_ModelLayerTest.class,JPA_DataAccessLayerTest.class})
+public class Training2ApplicationTests {
 
 }

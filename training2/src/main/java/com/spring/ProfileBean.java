@@ -46,16 +46,17 @@ public class ProfileBean {
 			return records.get(0);
 		}
 	}
-	public void register(String userid, String pwd) {
+	public int register(String userid, String pwd) {
 		LoginEntity ue=new LoginEntity();
 		ue.setUid(userid);
 		ue.setPwd(pwd);
 		ur.save(ue);
+		return 1;
 	}
-	public void update(String userid, String pwd) {
-		ur.update(userid, pwd);
+	public int update(String userid, String pwd) {
+		return ur.update(userid, pwd);
 	}
-	public void delete(String userid) {
-		ur.delete(userid);
+	public int delete(String userid) {
+		return ur.delete(userid);
 	}
 }

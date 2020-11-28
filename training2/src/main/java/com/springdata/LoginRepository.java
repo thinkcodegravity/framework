@@ -18,7 +18,7 @@ public interface LoginRepository extends JpaRepository<LoginEntity, String> {
 	@Transactional
 	@Modifying
 	@Query("UPDATE LoginEntity u SET u.pwd=?2 WHERE u.uid= ?1")
-	public void update(String users,String password);
+	public int update(String users,String password);
 
 	@Transactional
 	@Modifying
@@ -28,7 +28,7 @@ public interface LoginRepository extends JpaRepository<LoginEntity, String> {
 	@Transactional
 	@Modifying
 	@Query("DELETE LoginEntity u WHERE u.uid= ?1")
-	public void delete(String users);
+	public int delete(String users);
 
 	@Query("SELECT u FROM LoginEntity u WHERE u.uid= ?1 and u.pwd=?2")
 	public List<LoginEntity> verify(String users,String password);
